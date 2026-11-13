@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#1e3a8a" />
+  <meta name="description" content="Shiksha Saathi App - Class 5-6, JNVST, NCERT/BSEB/CBSE Notes, Online MCQ Tests & Video Lectures" />
+  <title>Shiksha Saathi App — Notes, Online Tests &amp; Video Courses</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#1e3a8a',
+              primary: '#2563eb',
+              accent: '#f59e0b',
+              accentHover: '#d97706',
+              light: '#eff6ff'
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f1f5f9;
+      color: #1e293b;
+      padding-bottom: 82px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Strict Copy Protection for Notes Reader */
+    .protected-content {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    /* Hide Scrollbar for Category Pills */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Smooth Card Hover & Transitions */
+    .app-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .app-card:active {
+      transform: scale(0.99);
+    }
+
+    /* Responsive Aspect Ratio for Video */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #0f172a;
+    }
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- TOP APP BAR -->
+  <header class="sticky top-0 z-40 bg-brand-dark text-white shadow-md">
+    <div class="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2.5 cursor-pointer" onclick="switchTab('home')">
+        <div class="w-9 h-9 rounded-xl bg-brand-accent text-brand-dark flex items-center justify-center font-heading font-extrabold text-lg shadow">
+          SS
+        </div>
+        <div>
+          <div class="font-heading font-bold text-lg leading-tight tracking-tight">
+            Shiksha <span class="text-brand-accent">Saathi</span>
+          </div>
+          <div class="text-[11px] text-blue-200 leading-none">Class 5-6 • JNVST • Computer</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="installAppBtn" onclick="triggerInstallPrompt()" class="hidden text-xs bg-brand-accent hover:bg-brand-accentHover text-slate-900 font-bold px-3 py-1.5 rounded-full shadow transition">
+          <i class="fa-solid fa-download mr-1"></i> Install
+        </button>
+        <button onclick="openAdminAccess()" class="text-xs bg-white/10 hover:bg-white/20 text-white border border-white/20 px-3 py-1.5 rounded-xl font-semibold transition flex items-center gap-1.5">
+          <i class="fa-solid fa-user-shield text-brand-accent"></i>
+          <span id="adminBtnLabel">Admin</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER (Mobile-First Centered Viewport) -->
+  <main class="max-w-3xl w-full mx-auto px-4 pt-4 flex-1">
+
+    <!-- GLOBAL TOP AD SLOT (Shown on Free Screens) -->
+    <div id="globalTopAdSlot" class="mb-4"></div>
+
+    <!-- =========================================================
+         VIEW 1: HOME TAB
+    ========================================================== -->
+    <section id="view-home" class="app-view space-y-5">
+      <!-- Hero Banner -->
+      <div class="rounded-2xl bg-gradient-to-br from-brand-dark via-blue-800 to-brand-primary text-white p-5 shadow-lg relative overflow-hidden">
+        <div class="relative z-10">
+          <span class="inline-block bg-brand-accent text-slate-900 text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
+            Free + Premium Learning App
+          </span>
+          <h1 class="font-heading text-xl sm:text-2xl font-bold leading-snug mb-1.5">
+            पढ़ाई अब होगी आसान और मज़ेदार!
+          </h1>
+          <p class="text-blue-100 text-xs sm:text-sm mb-4 max-w-md">
+            NCERT, BSEB, CBSE नोट्स, JNVST गद्यांश ऑनलाइन टेस्ट और वीडियो लेक्चर्स एक ही जगह।
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="switchTab('tests')" class="bg-brand-accent hover:bg-brand-accentHover text-slate-900 font-bold text-xs sm:text-sm px-4 py-2 rounded-xl shadow transition">
+              <i class="fa-solid fa-stopwatch mr-1.5"></i> Free Online Test दें
+            </button>
+            <button onclick="switchTab('notes')" class="bg-white/15 hover:bg-white/25 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl border border-white/25 transition">
+              <i class="fa-solid fa-book-open mr-1.5"></i> Study Notes पढ़ें
+            </button>
+          </div>
+        </div>
+        <i class="fa-solid fa-graduation-cap text-white/10 text-8xl absolute -right-3 -bottom-3 rotate-12 pointer-events-none"></i>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <h2 class="font-heading font-bold text-sm text-slate-700 uppercase tracking-wide">Select Category</h2>
+          <span id="activeCategoryBadge" class="text-xs font-semibold text-brand-primary">All Subjects</span>
+        </div>
+        <div id="categoryPills" class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Quick Stats Grid -->
+      <div class="grid grid-cols-3 gap-2.5">
+        <div onclick="switchTab('notes')" class="app-card p-3 text-center cursor-pointer hover:border-brand-primary">
+          <div class="w-9 h-9 mx-auto mb-1.5 rounded-xl bg-blue-50 text-brand-primary flex items-center justify-center text-base">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <div id="statNotesCount" class="font-heading font-bold text-lg text-slate-800 leading-none">0</div>
+          <div class="text-[11px] text-slate-500 mt-1 font-medium">Study Notes</div>
+        </div>
+        <div onclick="switchTab('tests')" class="app-card p-3 text-center cursor-pointer hover:border-brand-primary">
+          <div class="w-9 h-9 mx-auto mb-1.5 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-base">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <div id="statTestsCount" class="font-heading font-bold text-lg text-slate-800 leading-none">0</div>
+          <div class="text-[11px] text-slate-500 mt-1 font-medium">Online Tests</div>
+        </div>
+        <div onclick="switchTab('videos')" class="app-card p-3 text-center cursor-pointer hover:border-brand-primary">
+          <div class="w-9 h-9 mx-auto mb-1.5 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-base">
+            <i class="fa-solid fa-circle-play"></i>
+          </div>
+          <div id="statVideosCount" class="font-heading font-bold text-lg text-slate-800 leading-none">0</div>
+          <div class="text-[11px] text-slate-500 mt-1 font-medium">Video Classes</div>
+        </div>
+      </div>
+
+      <!-- Featured Paid Courses -->
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="font-heading font-bold text-lg text-slate-800 flex items-center gap-2">
+            <i class="fa-solid fa-crown text-brand-accent"></i> Premium Courses
+          </h2>
+          <button onclick="switchTab('courses')" class="text-xs font-bold text-brand-primary hover:underline">View All</button>
+        </div>
+        <div id="homeCoursesList" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Latest Free Study Materials -->
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="font-heading font-bold text-lg text-slate-800 flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-brand-primary"></i> Free Study Materials
+          </h2>
+          <span class="text-[11px] bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded-full">100% Free</span>
+        </div>
+        <div id="homeFreeMaterialsList" class="space-y-3">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VIEW 2: STUDY NOTES TAB
+    ========================================================== -->
+    <section id="view-notes" class="app-view hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="font-heading font-bold text-xl text-slate-800">Study Notes &amp; Chapters</h1>
+          <p class="text-xs text-slate-500">Free notes with ads &amp; Premium course notes</p>
+        </div>
+        <select id="notesFilterSelect" onchange="renderNotesTab()" class="text-xs font-semibold bg-white border border-slate-300 rounded-xl px-3 py-2 text-slate-700 outline-none">
+          <option value="All">All Categories</option>
+          <option value="Class 5">Class 5</option>
+          <option value="Class 6">Class 6</option>
+          <option value="JNVST">JNVST</option>
+          <option value="Computer">Computer</option>
+          <option value="GK">GK</option>
+        </select>
+      </div>
+
+      <div id="notesListContainer" class="space-y-3">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VIEW 3: ONLINE TEST ENGINE TAB
+    ========================================================== -->
+    <section id="view-tests" class="app-view hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="font-heading font-bold text-xl text-slate-800">Online MCQ Practice Tests</h1>
+          <p class="text-xs text-slate-500">Live timer, instant result &amp; answer key</p>
+        </div>
+        <select id="testsFilterSelect" onchange="renderTestsTab()" class="text-xs font-semibold bg-white border border-slate-300 rounded-xl px-3 py-2 text-slate-700 outline-none">
+          <option value="All">All Categories</option>
+          <option value="Class 5">Class 5</option>
+          <option value="Class 6">Class 6</option>
+          <option value="JNVST">JNVST</option>
+          <option value="Computer">Computer</option>
+          <option value="GK">GK</option>
+        </select>
+      </div>
+
+      <div id="testsListContainer" class="space-y-3">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VIEW 4: VIDEO LECTURES TAB
+    ========================================================== -->
+    <section id="view-videos" class="app-view hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="font-heading font-bold text-xl text-slate-800">Video Lectures</h1>
+          <p class="text-xs text-slate-500">YouTube &amp; Direct HD Video Classes</p>
+        </div>
+        <select id="videosFilterSelect" onchange="renderVideosTab()" class="text-xs font-semibold bg-white border border-slate-300 rounded-xl px-3 py-2 text-slate-700 outline-none">
+          <option value="All">All Categories</option>
+          <option value="Class 5">Class 5</option>
+          <option value="Class 6">Class 6</option>
+          <option value="JNVST">JNVST</option>
+          <option value="Computer">Computer</option>
+          <option value="GK">GK</option>
+        </select>
+      </div>
+
+      <!-- Active Video Player Card -->
+      <div id="activeVideoPlayerBox" class="hidden app-card p-4 space-y-3 border-brand-primary">
+        <div class="flex items-center justify-between">
+          <span id="activeVideoBadge" class="text-[11px] font-bold bg-blue-100 text-brand-primary px-2.5 py-0.5 rounded-full">Now Playing</span>
+          <button onclick="closeVideoPlayer()" class="text-xs text-slate-500 hover:text-red-600 font-semibold">
+            <i class="fa-solid fa-xmark mr-1"></i> Close Player
+          </button>
+        </div>
+        <div id="activeVideoEmbed" class="video-container"></div>
+        <div>
+          <h2 id="activeVideoTitle" class="font-heading font-bold text-base text-slate-800"></h2>
+          <p id="activeVideoDesc" class="text-xs text-slate-500 mt-1"></p>
+        </div>
+        <!-- Ad Banner below Free Video -->
+        <div id="videoPlayerAdSlot"></div>
+      </div>
+
+      <div id="videosListContainer" class="space-y-3">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VIEW 5: MY COURSES & PROFILE TAB
+    ========================================================== -->
+    <section id="view-courses" class="app-view hidden space-y-5">
+      <div class="app-card p-4 bg-gradient-to-r from-slate-800 to-brand-dark text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-brand-accent text-slate-900 flex items-center justify-center font-heading font-bold text-xl">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <div>
+            <h2 class="font-heading font-bold text-base">Student Dashboard</h2>
+            <p class="text-xs text-blue-200">Unlocked Courses &amp; Payment Status</p>
+          </div>
+        </div>
+        <span id="unlockedCountBadge" class="bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+          0 Unlocked
+        </span>
+      </div>
+
+      <!-- Pending / Submitted Payment Requests for Student -->
+      <div id="studentPaymentHistoryBox" class="hidden space-y-2">
+        <h3 class="font-heading font-bold text-sm text-slate-700 uppercase tracking-wide">Your Payment Submissions</h3>
+        <div id="studentPaymentHistoryList" class="space-y-2"></div>
+      </div>
+
+      <!-- All Available Courses -->
+      <div>
+        <h3 class="font-heading font-bold text-lg text-slate-800 mb-3">All Premium Courses</h3>
+        <div id="allCoursesContainer" class="space-y-3.5">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VIEW 6: ADMIN PANEL (NO-CODE CONTENT & AD MANAGER)
+    ========================================================== -->
+    <section id="view-admin" class="app-view hidden space-y-5">
+      <div class="app-card p-4 bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <h1 class="font-heading font-bold text-lg">Admin Control Panel</h1>
+          </div>
+          <p class="text-xs text-slate-300">Bina coding ke Notes, Tests, Videos, Ads aur Payments manage karein</p>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="resetDemoData()" class="text-xs bg-red-500/20 hover:bg-red-500/30 text-red-200 border border-red-400/30 px-3 py-1.5 rounded-xl font-semibold">
+            <i class="fa-solid fa-rotate-left mr-1"></i> Reset Demo
+          </button>
+          <button onclick="logoutAdmin()" class="text-xs bg-white text-slate-900 px-3 py-1.5 rounded-xl font-bold">
+            Exit Admin
+          </button>
+        </div>
+      </div>
+
+      <!-- Admin Sub-Navigation Tabs -->
+      <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+        <button onclick="switchAdminSubTab('payments')" id="adminTab-payments" class="admin-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-brand-primary text-white whitespace-nowrap">
+          <i class="fa-solid fa-indian-rupee-sign mr-1"></i> Payments (<span id="pendingPayCount">0</span>)
+        </button>
+        <button onclick="switchAdminSubTab('notes')" id="adminTab-notes" class="admin-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 whitespace-nowrap">
+          <i class="fa-solid fa-file-pen mr-1"></i> + Add Note
+        </button>
+        <button onclick="switchAdminSubTab('tests')" id="adminTab-tests" class="admin-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 whitespace-nowrap">
+          <i class="fa-solid fa-square-check mr-1"></i> + Add Test
+        </button>
+        <button onclick="switchAdminSubTab('videos')" id="adminTab-videos" class="admin-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 whitespace-nowrap">
+          <i class="fa-solid fa-video mr-1"></i> + Add Video
+        </button>
+        <button onclick="switchAdminSubTab('courses')" id="adminTab-courses" class="admin-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 whitespace-nowrap">
+          <i class="fa-solid fa-crown mr-1"></i> + Add Course
+        </button>
+        <button onclick="switchAdminSubTab('ads')" id="adminTab-ads" class="admin-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 whitespace-nowrap">
+          <i class="fa-solid fa-rectangle-ad mr-1"></i> AdSense Manager
+        </button>
+      </div>
+
+      <!-- ADMIN SUB-VIEW 1: PAYMENT VERIFICATION REQUESTS -->
+      <div id="adminSub-payments" class="admin-sub-view space-y-3">
+        <div class="app-card p-4">
+          <h2 class="font-heading font-bold text-base text-slate-800 mb-1">Student Payment Requests</h2>
+          <p class="text-xs text-slate-500 mb-4">UTR Number check karke 1-click mein student ka course unlock karein.</p>
+          <div id="adminPaymentsList" class="space-y-3">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ADMIN SUB-VIEW 2: ADD / MANAGE STUDY NOTES -->
+      <div id="adminSub-notes" class="admin-sub-view hidden space-y-4">
+        <form onsubmit="handleAddNote(event)" class="app-card p-4 space-y-3">
+          <h2 class="font-heading font-bold text-base text-slate-800">Naya Study Note Jodein</h2>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Note Title</label>
+            <input type="text" id="noteTitleInput" required placeholder="e.g. Class 6 Science Chapter 2 Notes" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none focus:border-brand-primary" />
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Category</label>
+              <select id="noteCategoryInput" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none">
+                <option value="Class 5">Class 5</option>
+                <option value="Class 6">Class 6</option>
+                <option value="JNVST">JNVST</option>
+                <option value="Computer">Computer</option>
+                <option value="GK">GK</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Access Type</label>
+              <select id="noteAccessInput" onchange="toggleCourseSelect('noteAccessInput', 'noteCourseWrap')" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none">
+                <option value="free">Free (With Ads)</option>
+                <option value="paid">Paid (Course Locked)</option>
+              </select>
+            </div>
+          </div>
+          <div id="noteCourseWrap" class="hidden">
+            <label class="block text-xs font-bold text-slate-700 mb-1">Select Linked Paid Course</label>
+            <select id="noteCourseIdInput" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none"></select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Note Content (Hindi / English)</label>
+            <textarea id="noteContentInput" rows="5" required placeholder="Yahan apna chapter ya study material likhein..." class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none focus:border-brand-primary"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-brand-primary hover:bg-brand-dark text-white font-bold py-2.5 rounded-xl text-sm shadow transition">
+            <i class="fa-solid fa-plus mr-1"></i> Publish Study Note
+          </button>
+        </form>
+
+        <div class="app-card p-4">
+          <h3 class="font-heading font-bold text-sm text-slate-700 mb-3">Existing Notes</h3>
+          <div id="adminNotesManageList" class="space-y-2"></div>
+        </div>
+      </div>
+
+      <!-- ADMIN SUB-VIEW 3: ADD / MANAGE ONLINE MCQ TESTS -->
+      <div id="adminSub-tests" class="admin-sub-view hidden space-y-4">
+        <form onsubmit="handleAddTest(event)" class="app-card p-4 space-y-3">
+          <h2 class="font-heading font-bold text-base text-slate-800">Naya Online MCQ Test Banayein</h2>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Test Title</label>
+            <input type="text" id="testTitleInput" required placeholder="e.g. JNVST Hindi Gadyansh Set 2" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none" />
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Category</label>
+              <select id="testCategoryInput" class="w-full text-xs sm:text-sm border border-slate-300 rounded-xl px-2.5 py-2 outline-none">
+                <option value="JNVST">JNVST</option>
+                <option value="Class 5">Class 5</option>
+                <option value="Class 6">Class 6</option>
+                <option value="Computer">Computer</option>
+                <option value="GK">GK</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Time (Mins)</label>
+              <input type="number" id="testDurationInput" value="5" min="1" max="120" required class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Type</label>
+              <select id="testAccessInput" onchange="toggleCourseSelect('testAccessInput', 'testCourseWrap')" class="w-full text-xs sm:text-sm border border-slate-300 rounded-xl px-2.5 py-2 outline-none">
+                <option value="free">Free</option>
+                <option value="paid">Paid</option>
+              </select>
+            </div>
+          </div>
+          <div id="testCourseWrap" class="hidden">
+            <label class="block text-xs font-bold text-slate-700 mb-1">Select Linked Paid Course</label>
+            <select id="testCourseIdInput" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none"></select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Passage / Instructions (Optional - Gadyansh ke liye)</label>
+            <textarea id="testPassageInput" rows="3" placeholder="Agar gadyansh test hai toh paragraph yahan likhein, warna khali chhod dein..." class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none"></textarea>
+          </div>
+
+          <!-- Dynamic Question Builder -->
+          <div class="border-t border-slate-200 pt-3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-brand-dark uppercase">Questions Builder</span>
+              <button type="button" onclick="addQuestionField()" class="text-xs bg-blue-50 text-brand-primary font-bold px-2.5 py-1 rounded-lg border border-blue-200">
+                + Add Question
+              </button>
+            </div>
+            <div id="dynamicQuestionsContainer" class="space-y-3"></div>
+          </div>
+
+          <button type="submit" class="w-full bg-brand-primary hover:bg-brand-dark text-white font-bold py-2.5 rounded-xl text-sm shadow transition">
+            <i class="fa-solid fa-check-circle mr-1"></i> Save &amp; Publish Test
+          </button>
+        </form>
+
+        <div class="app-card p-4">
+          <h3 class="font-heading font-bold text-sm text-slate-700 mb-3">Existing Tests</h3>
+          <div id="adminTestsManageList" class="space-y-2"></div>
+        </div>
+      </div>
+
+      <!-- ADMIN SUB-VIEW 4: ADD / MANAGE VIDEOS -->
+      <div id="adminSub-videos" class="admin-sub-view hidden space-y-4">
+        <form onsubmit="handleAddVideo(event)" class="app-card p-4 space-y-3">
+          <h2 class="font-heading font-bold text-base text-slate-800">Naya Video Lecture Jodein</h2>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Video Title</label>
+            <input type="text" id="videoTitleInput" required placeholder="e.g. Computer Fundamentals Part 1" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none" />
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Category</label>
+              <select id="videoCategoryInput" class="w-full text-xs sm:text-sm border border-slate-300 rounded-xl px-2.5 py-2 outline-none">
+                <option value="Computer">Computer</option>
+                <option value="Class 5">Class 5</option>
+                <option value="Class 6">Class 6</option>
+                <option value="JNVST">JNVST</option>
+                <option value="GK">GK</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Video Source</label>
+              <select id="videoTypeInput" class="w-full text-xs sm:text-sm border border-slate-300 rounded-xl px-2.5 py-2 outline-none">
+                <option value="youtube">YouTube Link</option>
+                <option value="mp4">Direct MP4 URL</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Access</label>
+              <select id="videoAccessInput" onchange="toggleCourseSelect('videoAccessInput', 'videoCourseWrap')" class="w-full text-xs sm:text-sm border border-slate-300 rounded-xl px-2.5 py-2 outline-none">
+                <option value="free">Free</option>
+                <option value="paid">Paid</option>
+              </select>
+            </div>
+          </div>
+          <div id="videoCourseWrap" class="hidden">
+            <label class="block text-xs font-bold text-slate-700 mb-1">Select Linked Paid Course</label>
+            <select id="videoCourseIdInput" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none"></select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">YouTube URL (Public/Unlisted) ya Direct MP4 Link</label>
+            <input type="url" id="videoUrlInput" required placeholder="https://www.youtube.com/watch?v=... ya https://.../video.mp4" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Short Description</label>
+            <input type="text" id="videoDescInput" placeholder="Lecture ke baare mein chhoti jankari" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none" />
+          </div>
+          <button type="submit" class="w-full bg-brand-primary hover:bg-brand-dark text-white font-bold py-2.5 rounded-xl text-sm shadow transition">
+            <i class="fa-solid fa-video mr-1"></i> Add Video Lecture
+          </button>
+        </form>
+
+        <div class="app-card p-4">
+          <h3 class="font-heading font-bold text-sm text-slate-700 mb-3">Existing Videos</h3>
+          <div id="adminVideosManageList" class="space-y-2"></div>
+        </div>
+      </div>
+
+      <!-- ADMIN SUB-VIEW 5: ADD / MANAGE PAID COURSES -->
+      <div id="adminSub-courses" class="admin-sub-view hidden space-y-4">
+        <form onsubmit="handleAddCourse(event)" class="app-card p-4 space-y-3">
+          <h2 class="font-heading font-bold text-base text-slate-800">Naya Paid Course Banayein</h2>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Course Title</label>
+            <input type="text" id="courseTitleInput" required placeholder="e.g. JNVST Complete Selection Batch 2026" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none" />
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Offer Price (₹)</label>
+              <input type="number" id="coursePriceInput" required placeholder="199" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">MRP (₹)</label>
+              <input type="number" id="courseMrpInput" required placeholder="499" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Category</label>
+              <select id="courseCategoryInput" class="w-full text-xs sm:text-sm border border-slate-300 rounded-xl px-2.5 py-2 outline-none">
+                <option value="JNVST">JNVST</option>
+                <option value="Class 5">Class 5</option>
+                <option value="Class 6">Class 6</option>
+                <option value="Computer">Computer</option>
+                <option value="GK">GK</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Your UPI ID (Payment receive karne ke liye)</label>
+            <input type="text" id="courseUpiInput" required value="shikshasaathi@upi" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Course Description / Features</label>
+            <textarea id="courseDescInput" rows="3" required placeholder="Is course mein kya-kya milega..." class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-brand-accent hover:bg-brand-accentHover text-slate-900 font-bold py-2.5 rounded-xl text-sm shadow transition">
+            <i class="fa-solid fa-crown mr-1"></i> Create Paid Course
+          </button>
+        </form>
+
+        <div class="app-card p-4">
+          <h3 class="font-heading font-bold text-sm text-slate-700 mb-3">Existing Paid Courses</h3>
+          <div id="adminCoursesManageList" class="space-y-2"></div>
+        </div>
+      </div>
+
+      <!-- ADMIN SUB-VIEW 6: ADSENSE / BANNER AD MANAGER -->
+      <div id="adminSub-ads" class="admin-sub-view hidden space-y-4">
+        <form onsubmit="handleSaveAds(event)" class="app-card p-4 space-y-4">
+          <div>
+            <h2 class="font-heading font-bold text-base text-slate-800">Google AdSense / Custom Ad Manager</h2>
+            <p class="text-xs text-slate-500">Yahan apna AdSense code ya HTML banner code paste karein. Free Notes, Free Videos aur Test Results par ads automatic dikhenge.</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">1. Top App Banner Ad Code</label>
+            <textarea id="adCodeTop" rows="3" class="w-full text-xs font-mono border border-slate-300 rounded-xl p-2.5 outline-none"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">2. Inside Free Study Notes &amp; Video Ad Code</label>
+            <textarea id="adCodeNote" rows="3" class="w-full text-xs font-mono border border-slate-300 rounded-xl p-2.5 outline-none"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">3. Online Test Start &amp; Result Screen Ad Code</label>
+            <textarea id="adCodeTest" rows="3" class="w-full text-xs font-mono border border-slate-300 rounded-xl p-2.5 outline-none"></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-sm shadow transition">
+            <i class="fa-solid fa-floppy-disk mr-1"></i> Save Ad Codes
+          </button>
+        </form>
+
+        <div class="app-card p-4 space-y-2">
+          <h3 class="font-heading font-bold text-sm text-slate-700">Live Preview (In-Note Ad Slot)</h3>
+          <div id="adminAdPreviewBox" class="border border-dashed border-slate-300 rounded-xl p-2 bg-slate-50"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       BOTTOM NAVIGATION BAR (MOBILE APP STYLE)
+  ========================================================== -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+    <div class="max-w-3xl mx-auto grid grid-cols-5 h-16">
+      <button onclick="switchTab('home')" id="nav-home" class="nav-btn flex flex-col items-center justify-center text-brand-primary font-bold">
+        <i class="fa-solid fa-house text-lg mb-0.5"></i>
+        <span class="text-[11px]">Home</span>
+      </button>
+      <button onclick="switchTab('notes')" id="nav-notes" class="nav-btn flex flex-col items-center justify-center text-slate-500 hover:text-brand-primary">
+        <i class="fa-solid fa-book-open text-lg mb-0.5"></i>
+        <span class="text-[11px]">Notes</span>
+      </button>
+      <button onclick="switchTab('tests')" id="nav-tests" class="nav-btn flex flex-col items-center justify-center text-slate-500 hover:text-brand-primary">
+        <i class="fa-solid fa-clipboard-question text-lg mb-0.5"></i>
+        <span class="text-[11px]">Tests</span>
+      </button>
+      <button onclick="switchTab('videos')" id="nav-videos" class="nav-btn flex flex-col items-center justify-center text-slate-500 hover:text-brand-primary">
+        <i class="fa-solid fa-circle-play text-lg mb-0.5"></i>
+        <span class="text-[11px]">Videos</span>
+      </button>
+      <button onclick="switchTab('courses')" id="nav-courses" class="nav-btn flex flex-col items-center justify-center text-slate-500 hover:text-brand-primary">
+        <i class="fa-solid fa-crown text-lg mb-0.5"></i>
+        <span class="text-[11px]">Courses</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- =========================================================
+       MODAL 1: FULL-SCREEN PROTECTED NOTE READER
+  ========================================================== -->
+  <div id="noteReaderModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-xs hidden flex items-center justify-center p-2 sm:p-4">
+    <div class="bg-white w-full max-w-2xl max-h-[92vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+      <!-- Reader Header -->
+      <div class="px-4 py-3 bg-brand-dark text-white flex items-center justify-between">
+        <div class="flex items-center gap-2 overflow-hidden">
+          <span id="readerCategoryBadge" class="text-[10px] bg-brand-accent text-slate-900 font-bold px-2 py-0.5 rounded-full shrink-0">Category</span>
+          <h3 id="readerTitle" class="font-heading font-bold text-sm sm:text-base truncate">Note Title</h3>
+        </div>
+        <button onclick="closeNoteReader()" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white shrink-0">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Reader Body (Strict Copy Protection) -->
+      <div id="readerScrollBody" class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-4 protected-content" oncontextmenu="return false;" oncopy="return false;" oncut="return false;" onselectstart="return false;">
+        <!-- Top Ad Slot Inside Free Note -->
+        <div id="readerTopAdSlot"></div>
+
+        <div class="flex items-center justify-between text-xs text-slate-500 border-b border-slate-100 pb-2">
+          <span><i class="fa-solid fa-shield-halved text-emerald-600 mr-1"></i> Protected Study Material</span>
+          <span>Shiksha Saathi</span>
+        </div>
+
+        <div id="readerContent" class="text-slate-800 text-sm sm:text-base leading-relaxed whitespace-pre-line"></div>
+
+        <!-- Bottom Ad Slot Inside Free Note -->
+        <div id="readerBottomAdSlot" class="pt-2"></div>
+      </div>
+
+      <div class="px-4 py-2.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+        <span class="text-[11px] text-slate-500"><i class="fa-solid fa-lock mr-1"></i> Copy-Paste Disabled</span>
+        <button onclick="closeNoteReader()" class="bg-brand-dark text-white text-xs font-bold px-4 py-1.5 rounded-xl">Done Reading</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODAL 2: INTERACTIVE ONLINE MCQ TEST ENGINE
+  ========================================================== -->
+  <div id="testEngineModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-xs hidden flex items-center justify-center p-2 sm:p-4">
+    <div class="bg-white w-full max-w-2xl max-h-[94vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+      <!-- Test Header -->
+      <div class="px-4 py-3 bg-brand-dark text-white flex items-center justify-between">
+        <div>
+          <h3 id="testEngineTitle" class="font-heading font-bold text-sm sm:text-base">Online Test</h3>
+          <span id="testEngineSub" class="text-[11px] text-blue-200">MCQ Practice</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div id="testTimerBadge" class="hidden bg-brand-accent text-slate-900 font-heading font-bold text-xs sm:text-sm px-3 py-1 rounded-xl">
+            <i class="fa-regular fa-clock mr-1"></i> <span id="testTimerText">05:00</span>
+          </div>
+          <button onclick="confirmCloseTest()" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Test Body -->
+      <div id="testEngineBody" class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-4">
+        <!-- Rendered dynamically: Start Screen -> Quiz Screen -> Result Screen -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODAL 3: COURSE PURCHASE & UPI QR UNLOCK MODAL
+  ========================================================== -->
+  <div id="buyCourseModal" class="fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-xs hidden flex items-center justify-center p-3">
+    <div class="bg-white w-full max-w-md max-h-[92vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+      <div class="px-4 py-3 bg-gradient-to-r from-brand-dark to-brand-primary text-white flex items-center justify-between">
+        <h3 class="font-heading font-bold text-base flex items-center gap-2">
+          <i class="fa-solid fa-crown text-brand-accent"></i> Unlock Premium Course
+        </h3>
+        <button onclick="closeBuyModal()" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-4 overflow-y-auto space-y-4">
+        <!-- Course Summary -->
+        <div class="bg-blue-50 border border-blue-100 rounded-xl p-3 flex items-center justify-between">
+          <div>
+            <div class="text-[11px] font-bold text-brand-primary uppercase">Selected Course</div>
+            <div id="buyCourseTitle" class="font-heading font-bold text-sm text-slate-800">Course Name</div>
+          </div>
+          <div class="text-right">
+            <div id="buyCoursePrice" class="font-heading font-extrabold text-xl text-brand-dark">₹199</div>
+            <div id="buyCourseMrp" class="text-xs text-slate-400 line-through">₹499</div>
+          </div>
+        </div>
+
+        <!-- Zero-Cost UPI QR Code Box -->
+        <div class="border border-slate-200 rounded-2xl p-3.5 text-center bg-slate-50">
+          <p class="text-xs font-bold text-slate-700 mb-2">Kisi bhi UPI App (PhonePe, GPay, Paytm) se Scan karein</p>
+          <div class="w-36 h-36 mx-auto bg-white p-2 rounded-xl border border-slate-200 shadow-xs flex items-center justify-center">
+            <!-- Crisp SVG QR Code Graphic -->
+            <svg viewBox="0 0 100 100" class="w-full h-full text-slate-900" fill="currentColor">
+              <rect x="5" y="5" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="5"/>
+              <rect x="12" y="12" width="14" height="14" rx="1"/>
+              <rect x="67" y="5" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="5"/>
+              <rect x="74" y="12" width="14" height="14" rx="1"/>
+              <rect x="5" y="67" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="5"/>
+              <rect x="12" y="74" width="14" height="14" rx="1"/>
+              <rect x="40" y="8" width="6" height="6"/><rect x="52" y="8" width="6" height="12"/>
+              <rect x="40" y="20" width="6" height="14"/><rect x="52" y="26" width="8" height="6"/>
+              <rect x="8" y="42" width="12" height="6"/><rect x="26" y="42" width="6" height="14"/>
+              <rect x="40" y="42" width="18" height="18" rx="2" fill="#2563eb"/>
+              <rect x="64" y="42" width="12" height="6"/><rect x="82" y="42" width="10" height="12"/>
+              <rect x="8" y="54" width="12" height="6"/><rect x="64" y="54" width="6" height="12"/>
+              <rect x="40" y="66" width="12" height="6"/><rect x="58" y="68" width="12" height="12"/>
+              <rect x="76" y="66" width="16" height="6"/><rect x="40" y="80" width="8" height="12"/>
+              <rect x="54" y="86" width="18" height="6"/><rect x="78" y="80" width="14" height="12"/>
+            </svg>
+          </div>
+          <div class="mt-2.5 flex items-center justify-center gap-2">
+            <span id="buyCourseUpiText" class="text-xs font-mono font-bold bg-white border border-slate-300 px-3 py-1 rounded-lg text-slate-800">shikshasaathi@upi</span>
+            <button type="button" onclick="copyUpiId()" class="text-xs bg-brand-primary text-white font-bold px-2.5 py-1 rounded-lg">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+
+        <!-- Payment Verification Form -->
+        <form onsubmit="submitPaymentRequest(event)" class="space-y-2.5">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Student Full Name</label>
+            <input type="text" id="payStudentName" required placeholder="Apna naam likhein" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none focus:border-brand-primary" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Mobile / WhatsApp</label>
+              <input type="tel" id="payStudentMobile" required placeholder="9876543210" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none focus:border-brand-primary" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">12-Digit UTR / Ref No.</label>
+              <input type="text" id="payUtrInput" required minlength="6" placeholder="e.g. 412345678901" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none focus:border-brand-primary" />
+            </div>
+          </div>
+
+          <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-sm shadow transition">
+            <i class="fa-solid fa-paper-plane mr-1"></i> Submit Payment for Verification
+          </button>
+        </form>
+
+        <!-- Instant Demo Unlock Option for Testing -->
+        <div class="border-t border-slate-200 pt-2.5 flex items-center justify-between">
+          <span class="text-[11px] text-slate-500">Testing ke liye turant unlock karein:</span>
+          <button type="button" onclick="instantDemoUnlock()" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold px-3 py-1.5 rounded-xl border border-amber-300">
+            <i class="fa-solid fa-bolt mr-1"></i> Instant Demo Unlock
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODAL 4: ADMIN PIN LOGIN MODAL
+  ========================================================== -->
+  <div id="adminPinModal" class="fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-xs hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-xs rounded-2xl shadow-2xl p-5 space-y-4 text-center">
+      <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-50 text-brand-dark flex items-center justify-center text-xl">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div>
+        <h3 class="font-heading font-bold text-lg text-slate-800">Admin Access</h3>
+        <p class="text-xs text-slate-500">Default Demo PIN: <strong class="text-brand-primary">1234</strong></p>
+      </div>
+      <form onsubmit="verifyAdminPin(event)" class="space-y-3">
+        <input type="password" id="adminPinInput" maxlength="6" required placeholder="Enter 4-Digit PIN" class="w-full text-center tracking-widest font-bold text-lg border border-slate-300 rounded-xl py-2 outline-none focus:border-brand-primary" />
+        <div class="flex gap-2">
+          <button type="button" onclick="closeAdminPinModal()" class="flex-1 bg-slate-100 text-slate-700 font-bold py-2 rounded-xl text-xs">Cancel</button>
+          <button type="submit" class="flex-1 bg-brand-dark text-white font-bold py-2 rounded-xl text-xs">Unlock Panel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       CUSTOM TOAST NOTIFICATION (REPLACES ALERT)
+  ========================================================== -->
+  <div id="appToast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-[100] bg-slate-900 text-white text-xs sm:text-sm font-medium px-4 py-2.5 rounded-xl shadow-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2 whitespace-nowrap">
+    <i id="appToastIcon" class="fa-solid fa-circle-info text-brand-accent"></i>
+    <span id="appToastMsg">Notification</span>
+  </div>
+
+  <!-- =========================================================
+       APPLICATION LOGIC & DATA STORE
+  ========================================================== -->
+  <script>
+    // Storage Keys
+    const STORAGE_KEY = 'shiksha_saathi_app_v1';
+    const ADMIN_PIN = '1234';
+
+    // Default Pre-Populated Realistic Educational Data (Hindi + English)
+    const DEFAULT_DATA = {
+      courses: [
+        {
+          id: 'course_jnvst',
+          title: 'JNVST Class 6 Selection Batch (गद्यांश + गणित + रीजनिंग)',
+          category: 'JNVST',
+          price: 199,
+          mrp: 499,
+          upiId: 'shikshasaathi@upi',
+          description: 'नवोदय विद्यालय प्रवेश परीक्षा के लिए 50+ अपठित गद्यांश प्रैक्टिस सेट, PDF नोट्स और वीडियो लेक्चर्स।'
+        },
+        {
+          id: 'course_comp',
+          title: 'Basic to Advance Computer Course (DCA Foundation)',
+          category: 'Computer',
+          price: 299,
+          mrp: 699,
+          upiId: 'shikshasaathi@upi',
+          description: 'MS Office, Internet, Hardware-Software, Shortcut Keys और Online Quiz प्रैक्टिस सर्टिफिकेट तैयारी के साथ।'
+        }
+      ],
+      notes: [
+        {
+          id: 'note_1',
+          title: 'Computer Input & Output Devices (कंप्यूटर के भाग - हिंदी और अंग्रेजी)',
+          category: 'Computer',
+          access: 'free',
+          courseId: '',
+          content: `1. Input Devices (इनपुट डिवाइस):\nवे उपकरण जिनके माध्यम से हम कंप्यूटर को डेटा या निर्देश (Instructions) देते हैं, उन्हें Input Devices कहते हैं।\n\nप्रमुख उदाहरण:\n• Keyboard (कीबोर्ड): टाइपिंग के लिए सबसे मुख्य इनपुट डिवाइस। इसमें सामान्यतः 104 कुंजियाँ (Keys) होती हैं।\n• Mouse (माउस): यह एक Pointing Device है जिसका उपयोग स्क्रीन पर कर्सर को नियंत्रित करने के लिए होता है।\n• Scanner (स्कैनर): कागज पर छपे फोटो या टेक्स्ट को डिजिटल रूप में कंप्यूटर में डालता है।\n• Microphone (माइक्रोफ़ोन): आवाज़ को कंप्यूटर में रिकॉर्ड करने के लिए।\n\n2. Output Devices (आउटपुट डिवाइस):\nवे उपकरण जो कंप्यूटर द्वारा प्रोसेस किए गए परिणाम (Result) को हमें दिखाते या सुनाते हैं।\n\nप्रमुख उदाहरण:\n• Monitor (मॉनिटर): इसे VDU (Visual Display Unit) भी कहते हैं। यह टीवी स्क्रीन जैसा दिखता है।\n• Printer (प्रिंटर): यह सॉफ्ट कॉपी (Soft Copy) को कागज पर हार्ड कॉपी (Hard Copy) में बदलता है।\n• Speaker (स्पीकर): ध्वनि (Audio) आउटपुट सुनने के लिए।`
+        },
+        {
+          id: 'note_2',
+          title: 'Class 6 Science Chapter 1: भोजन के घटक (Components of Food)',
+          category: 'Class 6',
+          access: 'free',
+          courseId: '',
+          content: `भोजन के मुख्य पोषक तत्व (Nutrients):\nहमारे भोजन में मुख्य रूप से 5 पोषक तत्व पाए जाते हैं:\n\n1. कार्बोहाइड्रेट (Carbohydrates): यह हमारे शरीर को तुरंत ऊर्जा (Energy) प्रदान करता है। स्रोत: चावल, गेहूँ, आलू, मक्का, केला।\n2. वसा (Fats): वसा से भी ऊर्जा मिलती है (कार्बोहाइड्रेट से भी अधिक)। स्रोत: घी, तेल, मक्खन, दूध, मेवे।\n3. प्रोटीन (Proteins): यह शरीर की वृद्धि और कोशिकाओं की मरम्मत के लिए आवश्यक है। इसे 'शरीर वर्धक भोजन' भी कहते हैं। स्रोत: दालें, सोयाबीन, पनीर, अंडा, दूध।\n4. विटामिन (Vitamins): ये रोगों से हमारे शरीर की रक्षा करते हैं (जैसे विटामिन A आँखों के लिए, विटामिन C मसूड़ों के लिए, विटामिन D हड्डियों के लिए)।\n5. खनिज लवण (Minerals): आयोडीन, आयरन (लौह), कैल्शियम आदि शरीर के उचित विकास के लिए ज़रूरी हैं।`
+        },
+        {
+          id: 'note_3',
+          title: 'JNVST अपठित गद्यांश हल करने की 5 अचूक ट्रिक्स (Master Notes)',
+          category: 'JNVST',
+          access: 'paid',
+          courseId: 'course_jnvst',
+          content: `नवोदय विद्यालय परीक्षा में हिंदी अनुभाग में 20 प्रश्न (4 गद्यांश) पूछे जाते हैं। पूरे 25/25 अंक लाने के लिए इन नियमों का पालन करें:\n\n1. पहले प्रश्नों को सरसरी निगाह से पढ़ें, फिर गद्यांश पढ़ें।\n2. उत्तर हमेशा गद्यांश में दी गई जानकारी के आधार पर ही चुनें, अपना बाहरी ज्ञान न लगाएं।\n3. शीर्षक (Title) वाले प्रश्न के लिए गद्यांश की पहली और अंतिम पंक्ति ध्यान से देखें।\n4. विलोम और पर्यायवाची शब्दों के लिए वाक्य का संदर्भ समझें।\n5. प्रत्येक गद्यांश को 5 से 6 मिनट में हल करने का अभ्यास करें।`
+        }
+      ],
+      tests: [
+        {
+          id: 'test_1',
+          title: 'JNVST हिंदी अपठित गद्यांश Online Test - Set 1',
+          category: 'JNVST',
+          duration: 5,
+          access: 'free',
+          courseId: '',
+          passage: 'निम्नलिखित गद्यांश को ध्यानपूर्वक पढ़कर प्रश्नों के उत्तर दें:\n\n"वृक्ष हमारे जीवन के सच्चे मित्र हैं। वे हमें स्वच्छ वायु (ऑक्सीजन), मीठे फल, छाया और औषधियाँ प्रदान करते हैं। वृक्ष वर्षा लाने में सहायक होते हैं और मिट्टी के कटाव को रोकते हैं। आजकल बढ़ती जनसंख्या और उद्योगों के कारण वनों की अंधाधुंध कटाई हो रही है, जिससे पर्यावरण का संतुलन बिगड़ रहा है। यदि हमें पृथ्वी को बचाना है, तो प्रत्येक व्यक्ति को कम से कम एक पेड़ अवश्य लगाना चाहिए।"',
+          questions: [
+            {
+              q: 'गद्यांश के अनुसार हमारे जीवन के सच्चे मित्र कौन हैं?',
+              options: ['उद्योग', 'वृक्ष', 'पर्वत', 'नदियाँ'],
+              answer: 1
+            },
+            {
+              q: 'वृक्ष हमें कौन-सी स्वच्छ वायु प्रदान करते हैं?',
+              options: ['कार्बन डाइऑक्साइड', 'नाइट्रोजन', 'ऑक्सीजन', 'हीलियम'],
+              answer: 2
+            },
+            {
+              q: 'पर्यावरण का संतुलन किस कारण बिगड़ रहा है?',
+              options: ['अधिक वर्षा से', 'पेड़ लगाने से', 'वनों की अंधाधुंध कटाई से', 'फल खाने से'],
+              answer: 2
+            },
+            {
+              q: 'इस गद्यांश का सबसे उपयुक्त शीर्षक क्या होगा?',
+              options: ['बढ़ती जनसंख्या', 'वृक्षों का महत्व', 'उद्योगों का विकास', 'मिट्टी के प्रकार'],
+              answer: 1
+            }
+          ]
+        },
+        {
+          id: 'test_2',
+          title: 'Computer Basics & Shortcut Keys Quiz (Class 5-6)',
+          category: 'Computer',
+          duration: 4,
+          access: 'free',
+          courseId: '',
+          passage: '',
+          questions: [
+            {
+              q: 'कंप्यूटर का मस्तिष्क (Brain of Computer) किसे कहा जाता है?',
+              options: ['Monitor', 'CPU', 'Mouse', 'Printer'],
+              answer: 1
+            },
+            {
+              q: 'किसी फाइल या टेक्स्ट को Copy करने की Shortcut Key क्या है?',
+              options: ['Ctrl + V', 'Ctrl + X', 'Ctrl + C', 'Ctrl + Z'],
+              answer: 2
+            },
+            {
+              q: 'इनमें से कौन-सा एक Output Device है?',
+              options: ['Keyboard', 'Scanner', 'Printer', 'Mouse'],
+              answer: 2
+            }
+          ]
+        },
+        {
+          id: 'test_3',
+          title: 'JNVST Mega Mock Test - गद्यांश व व्याकरण (Premium)',
+          category: 'JNVST',
+          duration: 10,
+          access: 'paid',
+          courseId: 'course_jnvst',
+          passage: '"समय अनमोल है। बीता हुआ समय कभी वापस नहीं आता। जो विद्यार्थी समय का सदुपयोग करते हैं, वे जीवन में अवश्य सफलता प्राप्त करते हैं।"',
+          questions: [
+            {
+              q: 'जीवन में सफलता कौन प्राप्त करते हैं?',
+              options: ['जो आलस्य करते हैं', 'जो समय का सदुपयोग करते हैं', 'जो देर से जागते हैं', 'इनमें से कोई नहीं'],
+              answer: 1
+            },
+            {
+              q: "'सदुपयोग' का विलोम शब्द क्या है?",
+              options: ['उपयोग', 'दुरुपयोग', 'प्रयोग', 'अनुपयोग'],
+              answer: 1
+            }
+          ]
+        }
+      ],
+      videos: [
+        {
+          id: 'vid_1',
+          title: 'What is Computer? Basic Introduction for Students',
+          category: 'Computer',
+          type: 'youtube',
+          url: 'https://www.youtube.com/watch?v=Cu3R5it4cQs',
+          access: 'free',
+          courseId: '',
+          description: 'कंप्यूटर क्या है और यह कैसे काम करता है — आसान भाषा में समझें।'
+        },
+        {
+          id: 'vid_2',
+          title: 'Class 6 Science & Nature Demo Video Lecture (Direct MP4)',
+          category: 'Class 6',
+          type: 'mp4',
+          url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+          access: 'free',
+          courseId: '',
+          description: 'Direct MP4 Player Demo — बिना YouTube के सीधे ऐप में वीडियो चलाएं।'
+        },
+        {
+          id: 'vid_3',
+          title: 'JNVST Complete Hindi Passage Strategy Class (Premium)',
+          category: 'JNVST',
+          type: 'youtube',
+          url: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
+          access: 'paid',
+          courseId: 'course_jnvst',
+          description: 'नवोदय विद्यालय परीक्षा के पिछले वर्षों के गद्यांश का पूरा हल।'
+        }
+      ],
+      unlockedCourses: [],
+      paymentRequests: [],
+      ads: {
+        topBanner: `<div class="bg-gradient-to-r from-amber-50 to-blue-50 border border-dashed border-blue-300 rounded-xl p-2.5 text-center">
+          <span class="text-[10px] uppercase tracking-wider text-slate-400 block">Advertisement (Google AdSense Slot)</span>
+          <p class="text-xs font-semibold text-brand-dark">📢 Yahan Aapka Google AdSense Banner Ad Dikhega (728x90 / Responsive)</p>
+        </div>`,
+        inNoteAd: `<div class="bg-amber-50/80 border border-dashed border-amber-300 rounded-xl p-3 text-center my-2">
+          <span class="text-[10px] uppercase tracking-wider text-amber-600 block">Sponsored Ad Slot</span>
+          <p class="text-xs font-bold text-slate-700">🎯 Free Study Material Ad — Admin Panel se apna AdSense Code yahan lagayein</p>
+        </div>`,
+        testAd: `<div class="bg-blue-50 border border-dashed border-blue-300 rounded-xl p-3 text-center">
+          <span class="text-[10px] uppercase tracking-wider text-blue-500 block">Advertisement</span>
+          <p class="text-xs font-bold text-brand-dark">🏆 Test Result Ad Slot — Har Student ke Score Card ke saath Earning karein</p>
+        </div>`
+      }
+    };
+
+    // App State
+    let appData = loadAppData();
+    let selectedCategory = 'All';
+    let isAdminLoggedIn = false;
+    let activeBuyCourseId = null;
+    let testTimerInterval = null;
+    let currentTestState = null;
+    let deferredInstallPrompt = null;
+
+    // Load & Save Helpers
+    function loadAppData() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          return JSON.parse(saved);
+        }
+      } catch (e) {
+        console.error('Storage read error:', e);
+      }
+      return JSON.parse(JSON.stringify(DEFAULT_DATA));
+    }
+
+    function saveAppData() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+      } catch (e) {
+        showToast('Storage save warning!', 'fa-triangle-exclamation');
+      }
+    }
+
+    // Toast Helper (Replaces alert())
+    let toastTimeout;
+    function showToast(message, iconClass = 'fa-circle-check') {
+      const toast = document.getElementById('appToast');
+      const msgEl = document.getElementById('appToastMsg');
+      const iconEl = document.getElementById('appToastIcon');
+      msgEl.textContent = message;
+      iconEl.className = `fa-solid ${iconClass} text-brand-accent`;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+        toast.classList.remove('opacity-100');
+      }, 2800);
+    }
+
+    // PWA Install Prompt Support
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      const btn = document.getElementById('installAppBtn');
+      if (btn) btn.classList.remove('hidden');
+    });
+
+    function triggerInstallPrompt() {
+      if (!deferredInstallPrompt) {
+        showToast('Browser menu se "Add to Home Screen" par click karein!', 'fa-mobile-screen');
+        return;
+      }
+      deferredInstallPrompt.prompt();
+      deferredInstallPrompt.userChoice.then(() => {
+        deferredInstallPrompt = null;
+        document.getElementById('installAppBtn').classList.add('hidden');
+      });
+    }
+
+    // Global Copy Protection Listener for Protected Reader
+    document.addEventListener('copy', (e) => {
+      const modal = document.getElementById('noteReaderModal');
+      if (!modal.classList.contains('hidden')) {
+        e.preventDefault();
+        showToast('Security Alert: Study Notes copy karna mana hai!', 'fa-shield-halved');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('noteReaderModal');
+      if (!modal.classList.contains('hidden') && (e.ctrlKey || e.metaKey)) {
+        const k = e.key.toLowerCase();
+        if (k === 'c' || k === 'x' || k === 'a' || k === 'p' || k === 's') {
+          e.preventDefault();
+          showToast('Copy / Print is disabled for study notes!', 'fa-lock');
+        }
+      }
+    });
+
+    // Check if Course is Unlocked
+    function isCourseUnlocked(courseId) {
+      if (!courseId) return true;
+      return appData.unlockedCourses.includes(courseId);
+    }
+
+    function getCourseById(courseId) {
+      return appData.courses.find(c => c.id === courseId);
+    }
+
+    // =========================================================
+    // NAVIGATION & TAB SWITCHING
+    // =========================================================
+    function switchTab(tabName) {
+      document.querySelectorAll('.app-view').forEach(sec => sec.classList.add('hidden'));
+      const target = document.getElementById(`view-${tabName}`);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('text-brand-primary', 'font-bold');
+        btn.classList.add('text-slate-500');
+      });
+      const activeNav = document.getElementById(`nav-${tabName}`);
+      if (activeNav) {
+        activeNav.classList.remove('text-slate-500');
+        activeNav.classList.add('text-brand-primary', 'font-bold');
+      }
+
+      // Show/Hide Top Ad Slot (Hide inside Admin Panel)
+      const topAd = document.getElementById('globalTopAdSlot');
+      if (tabName === 'admin') {
+        topAd.classList.add('hidden');
+      } else {
+        topAd.classList.remove('hidden');
+        topAd.innerHTML = appData.ads.topBanner || '';
+      }
+
+      if (tabName === 'home') renderHomeTab();
+      if (tabName === 'notes') renderNotesTab();
+      if (tabName === 'tests') renderTestsTab();
+      if (tabName === 'videos') renderVideosTab();
+      if (tabName === 'courses') renderCoursesTab();
+      if (tabName === 'admin') renderAdminPanel();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // =========================================================
+    // RENDER HOME TAB
+    // =========================================================
+    function renderHomeTab() {
+      const categories = ['All', 'Class 5', 'Class 6', 'JNVST', 'Computer', 'GK'];
+      const pillsEl = document.getElementById('categoryPills');
+      pillsEl.innerHTML = categories.map(cat => {
+        const active = selectedCategory === cat;
+        return `<button onclick="selectHomeCategory('${cat}')" class="px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition ${
+          active
+            ? 'bg-brand-dark text-white shadow'
+            : 'bg-white text-slate-600 border border-slate-200 hover:border-brand-primary'
+        }">${cat}</button>`;
+      }).join('');
+
+      document.getElementById('activeCategoryBadge').textContent = selectedCategory === 'All' ? 'All Subjects' : selectedCategory;
+
+      // Filter items
+      const filteredNotes = selectedCategory === 'All' ? appData.notes : appData.notes.filter(n => n.category === selectedCategory);
+      const filteredTests = selectedCategory === 'All' ? appData.tests : appData.tests.filter(t => t.category === selectedCategory);
+      const filteredVideos = selectedCategory === 'All' ? appData.videos : appData.videos.filter(v => v.category === selectedCategory);
+      const filteredCourses = selectedCategory === 'All' ? appData.courses : appData.courses.filter(c => c.category === selectedCategory);
+
+      document.getElementById('statNotesCount').textContent = filteredNotes.length;
+      document.getElementById('statTestsCount').textContent = filteredTests.length;
+      document.getElementById('statVideosCount').textContent = filteredVideos.length;
+
+      // Render Featured Courses
+      const coursesEl = document.getElementById('homeCoursesList');
+      if (filteredCourses.length === 0) {
+        coursesEl.innerHTML = `<div class="app-card p-4 text-xs text-slate-500 col-span-2 text-center">Is category mein abhi koi paid course nahi hai.</div>`;
+      } else {
+        coursesEl.innerHTML = filteredCourses.map(course => {
+          const unlocked = isCourseUnlocked(course.id);
+          return `
+            <div class="app-card p-4 flex flex-col justify-between border-t-4 border-t-brand-accent">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">${course.category}</span>
+                  ${unlocked
+                    ? `<span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full"><i class="fa-solid fa-check mr-1"></i>Unlocked</span>`
+                    : `<span class="text-[10px] font-bold bg-blue-50 text-brand-primary px-2 py-0.5 rounded-full">Premium Batch</span>`
+                  }
+                </div>
+                <h3 class="font-heading font-bold text-sm sm:text-base text-slate-800 mb-1">${course.title}</h3>
+                <p class="text-xs text-slate-500 line-clamp-2 mb-3">${course.description}</p>
+              </div>
+              <div class="pt-2.5 border-t border-slate-100 flex items-center justify-between">
+                <div>
+                  <span class="font-heading font-extrabold text-lg text-brand-dark">₹${course.price}</span>
+                  <span class="text-xs text-slate-400 line-through ml-1">₹${course.mrp}</span>
+                </div>
+                ${unlocked
+                  ? `<button onclick="switchTab('notes')" class="bg-emerald-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl">Open Content</button>`
+                  : `<button onclick="openBuyModal('${course.id}')" class="bg-brand-accent hover:bg-brand-accentHover text-slate-900 text-xs font-bold px-3.5 py-2 rounded-xl shadow-xs">Buy Now</button>`
+                }
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Render Latest Free Study Materials
+      const freeListEl = document.getElementById('homeFreeMaterialsList');
+      const freeItems = [
+        ...filteredNotes.filter(n => n.access === 'free').map(n => ({ ...n, itemType: 'note' })),
+        ...filteredTests.filter(t => t.access === 'free').map(t => ({ ...t, itemType: 'test' })),
+        ...filteredVideos.filter(v => v.access === 'free').map(v => ({ ...v, itemType: 'video' }))
+      ];
+
+      if (freeItems.length === 0) {
+        freeListEl.innerHTML = `<div class="app-card p-4 text-xs text-slate-500 text-center">Is category mein koi free material nahi mila.</div>`;
+      } else {
+        freeListEl.innerHTML = freeItems.slice(0, 5).map(item => {
+          let icon = 'fa-file-lines text-brand-primary bg-blue-50';
+          let action = `openNoteReader('${item.id}')`;
+          let btnText = 'Read Note';
+          if (item.itemType === 'test') {
+            icon = 'fa-stopwatch text-amber-600 bg-amber-50';
+            action = `startOnlineTest('${item.id}')`;
+            btnText = 'Start Test';
+          } else if (item.itemType === 'video') {
+            icon = 'fa-play text-emerald-600 bg-emerald-50';
+            action = `playVideoItem('${item.id}')`;
+            btnText = 'Watch Video';
+          }
+          return `
+            <div onclick="${action}" class="app-card p-3.5 flex items-center justify-between gap-3 cursor-pointer hover:border-brand-primary">
+              <div class="flex items-center gap-3 overflow-hidden">
+                <div class="w-10 h-10 rounded-xl ${icon} flex items-center justify-center shrink-0">
+                  <i class="fa-solid ${icon.split(' ')[0]}"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <div class="flex items-center gap-1.5 mb-0.5">
+                    <span class="text-[10px] font-bold text-slate-500 uppercase">${item.category}</span>
+                    <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-1.5 rounded">FREE</span>
+                  </div>
+                  <h4 class="font-heading font-bold text-sm text-slate-800 truncate">${item.title}</h4>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-brand-primary bg-blue-50 px-3 py-1.5 rounded-xl shrink-0">${btnText}</span>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    function selectHomeCategory(cat) {
+      selectedCategory = cat;
+      renderHomeTab();
+    }
+
+    // =========================================================
+    // RENDER & OPEN STUDY NOTES
+    // =========================================================
+    function renderNotesTab() {
+      const filter = document.getElementById('notesFilterSelect').value;
+      const list = filter === 'All' ? appData.notes : appData.notes.filter(n => n.category === filter);
+      const container = document.getElementById('notesListContainer');
+
+      if (list.length === 0) {
+        container.innerHTML = `<div class="app-card p-6 text-center text-sm text-slate-500">Koi Study Note nahi mila.</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(note => {
+        const isFree = note.access === 'free';
+        const unlocked = isFree || isCourseUnlocked(note.courseId);
+        const course = getCourseById(note.courseId);
+
+        return `
+          <div class="app-card p-4 flex items-center justify-between gap-3">
+            <div class="space-y-1 overflow-hidden">
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="text-[10px] font-bold bg-blue-50 text-brand-primary px-2 py-0.5 rounded-full">${note.category}</span>
+                ${isFree
+                  ? `<span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Free Note</span>`
+                  : unlocked
+                    ? `<span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full"><i class="fa-solid fa-lock-open mr-1"></i>Unlocked</span>`
+                    : `<span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full"><i class="fa-solid fa-lock mr-1"></i>Paid (${course ? '₹' + course.price : 'Course'})</span>`
+                }
+              </div>
+              <h3 class="font-heading font-bold text-sm sm:text-base text-slate-800">${note.title}</h3>
+              <p class="text-xs text-slate-500 truncate">${note.content.substring(0, 85)}...</p>
+            </div>
+            ${unlocked
+              ? `<button onclick="openNoteReader('${note.id}')" class="bg-brand-primary hover:bg-brand-dark text-white text-xs font-bold px-3.5 py-2 rounded-xl shrink-0">Read</button>`
+              : `<button onclick="openBuyModal('${note.courseId}')" class="bg-brand-accent hover:bg-brand-accentHover text-slate-900 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0"><i class="fa-solid fa-lock mr-1"></i>Unlock</button>`
+            }
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openNoteReader(noteId) {
+      const note = appData.notes.find(n => n.id === noteId);
+      if (!note) return;
+
+      if (note.access === 'paid' && !isCourseUnlocked(note.courseId)) {
+        openBuyModal(note.courseId);
+        return;
+      }
+
+      document.getElementById('readerCategoryBadge').textContent = note.category;
+      document.getElementById('readerTitle').textContent = note.title;
+      document.getElementById('readerContent').textContent = note.content;
+
+      // Show AdSense Slots only on Free Notes
+      const topAd = document.getElementById('readerTopAdSlot');
+      const botAd = document.getElementById('readerBottomAdSlot');
+      if (note.access === 'free') {
+        topAd.innerHTML = appData.ads.inNoteAd || '';
+        botAd.innerHTML = appData.ads.inNoteAd || '';
+      } else {
+        topAd.innerHTML = '';
+        botAd.innerHTML = '';
+      }
+
+      document.getElementById('noteReaderModal').classList.remove('hidden');
+      document.getElementById('readerScrollBody').scrollTop = 0;
+    }
+
+    function closeNoteReader() {
+      document.getElementById('noteReaderModal').classList.add('hidden');
+    }
+
+    // =========================================================
+    // ONLINE MCQ TEST ENGINE
+    // =========================================================
+    function renderTestsTab() {
+      const filter = document.getElementById('testsFilterSelect').value;
+      const list = filter === 'All' ? appData.tests : appData.tests.filter(t => t.category === filter);
+      const container = document.getElementById('testsListContainer');
+
+      if (list.length === 0) {
+        container.innerHTML = `<div class="app-card p-6 text-center text-sm text-slate-500">Koi Online Test nahi mila.</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(test => {
+        const isFree = test.access === 'free';
+        const unlocked = isFree || isCourseUnlocked(test.courseId);
+        const course = getCourseById(test.courseId);
+
+        return `
+          <div class="app-card p-4 flex items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="text-[10px] font-bold bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full">${test.category}</span>
+                <span class="text-[10px] font-semibold text-slate-500"><i class="fa-regular fa-clock mr-0.5"></i> ${test.duration} Mins • ${test.questions.length} Qs</span>
+                ${isFree
+                  ? `<span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Free</span>`
+                  : unlocked
+                    ? `<span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Unlocked</span>`
+                    : `<span class="text-[10px] font-bold bg-red-50 text-red-600 px-2 py-0.5 rounded-full"><i class="fa-solid fa-lock mr-0.5"></i>${course ? '₹' + course.price : 'Paid'}</span>`
+                }
+              </div>
+              <h3 class="font-heading font-bold text-sm sm:text-base text-slate-800">${test.title}</h3>
+            </div>
+            ${unlocked
+              ? `<button onclick="startOnlineTest('${test.id}')" class="bg-brand-dark hover:bg-brand-primary text-white text-xs font-bold px-4 py-2 rounded-xl shrink-0">Start Test</button>`
+              : `<button onclick="openBuyModal('${test.courseId}')" class="bg-brand-accent hover:bg-brand-accentHover text-slate-900 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0">Unlock</button>`
+            }
+          </div>
+        `;
+      }).join('');
+    }
+
+    function startOnlineTest(testId) {
+      const test = appData.tests.find(t => t.id === testId);
+      if (!test) return;
+
+      if (test.access === 'paid' && !isCourseUnlocked(test.courseId)) {
+        openBuyModal(test.courseId);
+        return;
+      }
+
+      clearInterval(testTimerInterval);
+      currentTestState = {
+        test: test,
+        currentIndex: 0,
+        answers: new Array(test.questions.length).fill(null),
+        secondsLeft: test.duration * 60
+      };
+
+      document.getElementById('testEngineTitle').textContent = test.title;
+      document.getElementById('testEngineSub').textContent = `${test.category} • ${test.questions.length} Questions • ${test.duration} Minutes`;
+      document.getElementById('testTimerBadge').classList.add('hidden');
+      document.getElementById('testEngineModal').classList.remove('hidden');
+
+      renderTestStartScreen();
+    }
+
+    function renderTestStartScreen() {
+      const { test } = currentTestState;
+      const body = document.getElementById('testEngineBody');
+      body.innerHTML = `
+        <div class="space-y-4">
+          ${test.access === 'free' ? (appData.ads.testAd || '') : ''}
+          <div class="bg-blue-50 border border-blue-100 rounded-2xl p-4 space-y-2">
+            <h4 class="font-heading font-bold text-base text-brand-dark">परीक्षा के निर्देश (Instructions):</h4>
+            <ul class="text-xs sm:text-sm text-slate-700 list-disc pl-5 space-y-1">
+              <li>कुल प्रश्न: <strong>${test.questions.length}</strong></li>
+              <li>कुल समय: <strong>${test.duration} मिनट</strong></li>
+              <li>प्रत्येक सही उत्तर के लिए <strong>1 अंक</strong> मिलेगा। कोई Negative Marking नहीं है।</li>
+              <li>समय समाप्त होने पर टेस्ट अपने आप Submit हो जाएगा।</li>
+            </ul>
+          </div>
+          <button onclick="beginQuizQuestions()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm shadow-md transition">
+            <i class="fa-solid fa-play mr-1.5"></i> Begin Test Now
+          </button>
+        </div>
+      `;
+    }
+
+    function beginQuizQuestions() {
+      document.getElementById('testTimerBadge').classList.remove('hidden');
+      updateTimerDisplay();
+      testTimerInterval = setInterval(() => {
+        currentTestState.secondsLeft--;
+        updateTimerDisplay();
+        if (currentTestState.secondsLeft <= 0) {
+          clearInterval(testTimerInterval);
+          submitOnlineTest();
+        }
+      }, 1000);
+      renderCurrentQuestion();
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(currentTestState.secondsLeft / 60);
+      const secs = currentTestState.secondsLeft % 60;
+      document.getElementById('testTimerText').textContent =
+        `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    function renderCurrentQuestion() {
+      const { test, currentIndex, answers } = currentTestState;
+      const qObj = test.questions[currentIndex];
+      const body = document.getElementById('testEngineBody');
+
+      // Question Navigator Palette
+      const paletteHtml = test.questions.map((_, idx) => {
+        let cls = 'bg-slate-100 text-slate-700 border-slate-300';
+        if (idx === currentIndex) cls = 'bg-brand-dark text-white border-brand-dark';
+        else if (answers[idx] !== null) cls = 'bg-emerald-100 text-emerald-800 border-emerald-400';
+        return `<button onclick="jumpToQuestion(${idx})" class="w-8 h-8 rounded-lg border text-xs font-bold ${cls}">${idx + 1}</button>`;
+      }).join('');
+
+      body.innerHTML = `
+        <div class="space-y-4">
+          <!-- Question Palette -->
+          <div class="flex flex-wrap gap-1.5 pb-2 border-b border-slate-100">
+            ${paletteHtml}
+          </div>
+
+          <!-- Optional Passage Box (For Gadyansh Tests) -->
+          ${test.passage ? `
+            <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-3 text-xs sm:text-sm text-slate-800 leading-relaxed max-h-40 overflow-y-auto whitespace-pre-line">
+              ${test.passage}
+            </div>
+          ` : ''}
+
+          <!-- Question Text -->
+          <div>
+            <span class="text-xs font-bold text-brand-primary">Question ${currentIndex + 1} of ${test.questions.length}</span>
+            <h4 class="font-heading font-bold text-base sm:text-lg text-slate-800 mt-1">${qObj.q}</h4>
+          </div>
+
+          <!-- 4 Options -->
+          <div class="space-y-2.5">
+            ${qObj.options.map((opt, optIdx) => {
+              const selected = answers[currentIndex] === optIdx;
+              return `
+                <button onclick="selectTestOption(${optIdx})" class="w-full text-left p-3.5 rounded-xl border text-sm font-medium transition flex items-center gap-3 ${
+                  selected
+                    ? 'bg-blue-50 border-brand-primary text-brand-dark font-bold shadow-xs'
+                    : 'bg-white border-slate-200 hover:border-slate-400 text-slate-700'
+                }">
+                  <span class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
+                    selected ? 'bg-brand-primary text-white' : 'bg-slate-100 text-slate-600'
+                  }">${String.fromCharCode(65 + optIdx)}</span>
+                  <span>${opt}</span>
+                </button>
+              `;
+            }).join('')}
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="pt-3 border-t border-slate-200 flex items-center justify-between gap-2">
+            <button onclick="prevTestQuestion()" ${currentIndex === 0 ? 'disabled' : ''} class="px-4 py-2 rounded-xl text-xs font-bold border border-slate-300 text-slate-700 disabled:opacity-40">
+              <i class="fa-solid fa-arrow-left mr-1"></i> Previous
+            </button>
+
+            ${currentIndex < test.questions.length - 1
+              ? `<button onclick="nextTestQuestion()" class="px-5 py-2 rounded-xl text-xs font-bold bg-brand-primary text-white">Next <i class="fa-solid fa-arrow-right ml-1"></i></button>`
+              : `<button onclick="submitOnlineTest()" class="px-5 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow">Submit Test <i class="fa-solid fa-check ml-1"></i></button>`
+            }
+          </div>
+        </div>
+      `;
+    }
+
+    function selectTestOption(optIdx) {
+      currentTestState.answers[currentTestState.currentIndex] = optIdx;
+      renderCurrentQuestion();
+    }
+
+    function jumpToQuestion(idx) {
+      currentTestState.currentIndex = idx;
+      renderCurrentQuestion();
+    }
+
+    function prevTestQuestion() {
+      if (currentTestState.currentIndex > 0) {
+        currentTestState.currentIndex--;
+        renderCurrentQuestion();
+      }
+    }
+
+    function nextTestQuestion() {
+      if (currentTestState.currentIndex < currentTestState.test.questions.length - 1) {
+        currentTestState.currentIndex++;
+        renderCurrentQuestion();
+      }
+    }
+
+    function submitOnlineTest() {
+      clearInterval(testTimerInterval);
+      document.getElementById('testTimerBadge').classList.add('hidden');
+
+      const { test, answers } = currentTestState;
+      let correct = 0;
+      let wrong = 0;
+      let skipped = 0;
+
+      test.questions.forEach((q, i) => {
+        if (answers[i] === null) skipped++;
+        else if (answers[i] === q.answer) correct++;
+        else wrong++;
+      });
+
+      const percent = Math.round((correct / test.questions.length) * 100);
+      const body = document.getElementById('testEngineBody');
+
+      body.innerHTML = `
+        <div class="space-y-4">
+          <!-- Score Card -->
+          <div class="bg-gradient-to-br from-brand-dark to-brand-primary text-white rounded-2xl p-5 text-center shadow">
+            <div class="text-xs uppercase tracking-wider text-blue-200 font-bold">Your Test Scorecard</div>
+            <div class="font-heading text-4xl font-extrabold my-1">${correct} / ${test.questions.length}</div>
+            <div class="inline-block bg-brand-accent text-slate-900 text-xs font-bold px-3 py-0.5 rounded-full">
+              Score: ${percent}% ${percent >= 60 ? '🎉 Excellent!' : '💪 Keep Practicing!'}
+            </div>
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-white/15 text-xs">
+              <div><span class="block font-bold text-emerald-300 text-base">${correct}</span>Correct</div>
+              <div><span class="block font-bold text-red-300 text-base">${wrong}</span>Wrong</div>
+              <div><span class="block font-bold text-amber-200 text-base">${skipped}</span>Skipped</div>
+            </div>
+          </div>
+
+          <!-- Result Ad Slot -->
+          ${test.access === 'free' ? (appData.ads.testAd || '') : ''}
+
+          <!-- Detailed Answer Key Review -->
+          <div>
+            <h4 class="font-heading font-bold text-base text-slate-800 mb-2">Detailed Answer Key:</h4>
+            <div class="space-y-2.5">
+              ${test.questions.map((q, idx) => {
+                const userAns = answers[idx];
+                const isRight = userAns === q.answer;
+                return `
+                  <div class="p-3 rounded-xl border ${isRight ? 'bg-emerald-50/60 border-emerald-200' : 'bg-red-50/50 border-red-200'} text-xs space-y-1">
+                    <div class="font-bold text-slate-800">Q${idx + 1}. ${q.q}</div>
+                    <div class="text-slate-600">
+                      Your Answer: <strong class="${isRight ? 'text-emerald-700' : 'text-red-600'}">${userAns !== null ? q.options[userAns] : 'Skipped'}</strong>
+                    </div>
+                    <div class="text-emerald-800 font-semibold">
+                      Correct Answer: ${q.options[q.answer]}
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+
+          <button onclick="closeTestModal()" class="w-full bg-brand-dark text-white font-bold py-2.5 rounded-xl text-sm">
+            Back to All Tests
+          </button>
+        </div>
+      `;
+    }
+
+    function confirmCloseTest() {
+      clearInterval(testTimerInterval);
+      closeTestModal();
+    }
+
+    function closeTestModal() {
+      clearInterval(testTimerInterval);
+      document.getElementById('testEngineModal').classList.add('hidden');
+    }
+
+    // =========================================================
+    // VIDEO LECTURES (YOUTUBE & DIRECT MP4)
+    // =========================================================
+    function extractYouTubeId(url) {
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    function renderVideosTab() {
+      const filter = document.getElementById('videosFilterSelect').value;
+      const list = filter === 'All' ? appData.videos : appData.videos.filter(v => v.category === filter);
+      const container = document.getElementById('videosListContainer');
+
+      if (list.length === 0) {
+        container.innerHTML = `<div class="app-card p-6 text-center text-sm text-slate-500">Koi Video Lecture nahi mila.</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(vid => {
+        const isFree = vid.access === 'free';
+        const unlocked = isFree || isCourseUnlocked(vid.courseId);
+        const course = getCourseById(vid.courseId);
+
+        return `
+          <div class="app-card p-4 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 overflow-hidden">
+              <div class="w-12 h-12 rounded-xl ${unlocked ? 'bg-blue-50 text-brand-primary' : 'bg-amber-50 text-amber-600'} flex items-center justify-center text-lg shrink-0">
+                <i class="fa-solid ${unlocked ? 'fa-circle-play' : 'fa-lock'}"></i>
+              </div>
+              <div class="overflow-hidden">
+                <div class="flex flex-wrap items-center gap-1.5 mb-0.5">
+                  <span class="text-[10px] font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full">${vid.category}</span>
+                  <span class="text-[10px] font-semibold text-slate-400 uppercase">${vid.type === 'youtube' ? 'YouTube' : 'MP4 HD'}</span>
+                  ${isFree
+                    ? `<span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Free</span>`
+                    : unlocked
+                      ? `<span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Unlocked</span>`
+                      : `<span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">${course ? '₹' + course.price : 'Paid'}</span>`
+                  }
+                </div>
+                <h3 class="font-heading font-bold text-sm text-slate-800 truncate">${vid.title}</h3>
+                <p class="text-xs text-slate-500 truncate">${vid.description || ''}</p>
+              </div>
+            </div>
+            ${unlocked
+              ? `<button onclick="playVideoItem('${vid.id}')" class="bg-brand-primary hover:bg-brand-dark text-white text-xs font-bold px-3.5 py-2 rounded-xl shrink-0">Watch</button>`
+              : `<button onclick="openBuyModal('${vid.courseId}')" class="bg-brand-accent hover:bg-brand-accentHover text-slate-900 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0">Unlock</button>`
+            }
+          </div>
+        `;
+      }).join('');
+    }
+
+    function playVideoItem(videoId) {
+      const vid = appData.videos.find(v => v.id === videoId);
+      if (!vid) return;
+
+      if (vid.access === 'paid' && !isCourseUnlocked(vid.courseId)) {
+        openBuyModal(vid.courseId);
+        return;
+      }
+
+      switchTab('videos');
+      const box = document.getElementById('activeVideoPlayerBox');
+      const embedEl = document.getElementById('activeVideoEmbed');
+      const adEl = document.getElementById('videoPlayerAdSlot');
+
+      document.getElementById('activeVideoTitle').textContent = vid.title;
+      document.getElementById('activeVideoDesc').textContent = vid.description || '';
+      document.getElementById('activeVideoBadge').textContent = `${vid.category} • ${vid.type === 'youtube' ? 'YouTube Lecture' : 'Direct Video'}`;
+
+      if (vid.type === 'youtube') {
+        const ytId = extractYouTubeId(vid.url);
+        if (ytId) {
+          embedEl.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1" allowfullscreen></iframe>`;
+        } else {
+          embedEl.innerHTML = `<div class="p-6 text-white text-xs text-center">Invalid YouTube URL</div>`;
+        }
+      } else {
+        embedEl.innerHTML = `<video controls playsinline src="${vid.url}"></video>`;
+      }
+
+      adEl.innerHTML = vid.access === 'free' ? (appData.ads.inNoteAd || '') : '';
+      box.classList.remove('hidden');
+      box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function closeVideoPlayer() {
+      document.getElementById('activeVideoEmbed').innerHTML = '';
+      document.getElementById('activeVideoPlayerBox').classList.add('hidden');
+    }
+
+    // =========================================================
+    // COURSES TAB & UPI PURCHASE / UNLOCK FLOW
+    // =========================================================
+    function renderCoursesTab() {
+      document.getElementById('unlockedCountBadge').textContent = `${appData.unlockedCourses.length} Unlocked`;
+
+      // Payment History Box
+      const historyBox = document.getElementById('studentPaymentHistoryBox');
+      const historyList = document.getElementById('studentPaymentHistoryList');
+      if (appData.paymentRequests.length > 0) {
+        historyBox.classList.remove('hidden');
+        historyList.innerHTML = appData.paymentRequests.map(req => {
+          const course = getCourseById(req.courseId);
+          return `
+            <div class="app-card p-3 flex items-center justify-between text-xs">
+              <div>
+                <div class="font-bold text-slate-800">${course ? course.title : 'Course'}</div>
+                <div class="text-slate-500">UTR: <span class="font-mono">${req.utr}</span> • ${req.studentName}</div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full font-bold ${
+                req.status === 'approved' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-800'
+              }">
+                ${req.status === 'approved' ? 'Unlocked' : 'Pending Approval'}
+              </span>
+            </div>
+          `;
+        }).join('');
+      } else {
+        historyBox.classList.add('hidden');
+      }
+
+      // All Courses
+      const container = document.getElementById('allCoursesContainer');
+      container.innerHTML = appData.courses.map(course => {
+        const unlocked = isCourseUnlocked(course.id);
+        return `
+          <div class="app-card p-4 space-y-3 border-l-4 ${unlocked ? 'border-l-emerald-500' : 'border-l-brand-accent'}">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-[10px] font-bold bg-blue-50 text-brand-primary px-2.5 py-0.5 rounded-full">${course.category}</span>
+                <h3 class="font-heading font-bold text-base text-slate-800 mt-1">${course.title}</h3>
+              </div>
+              <div class="text-right shrink-0">
+                <div class="font-heading font-extrabold text-xl text-brand-dark">₹${course.price}</div>
+                <div class="text-xs text-slate-400 line-through">₹${course.mrp}</div>
+              </div>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">${course.description}</p>
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] text-slate-500"><i class="fa-solid fa-infinity mr-1"></i> Full Access</span>
+              ${unlocked
+                ? `<button onclick="switchTab('notes')" class="bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-xl"><i class="fa-solid fa-check mr-1"></i> Access Course</button>`
+                : `<button onclick="openBuyModal('${course.id}')" class="bg-brand-accent hover:bg-brand-accentHover text-slate-900 text-xs font-bold px-4 py-2 rounded-xl shadow">Buy &amp; Unlock Now</button>`
+              }
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openBuyModal(courseId) {
+      const course = getCourseById(courseId) || appData.courses[0];
+      if (!course) return;
+      activeBuyCourseId = course.id;
+
+      document.getElementById('buyCourseTitle').textContent = course.title;
+      document.getElementById('buyCoursePrice').textContent = `₹${course.price}`;
+      document.getElementById('buyCourseMrp').textContent = `₹${course.mrp}`;
+      document.getElementById('buyCourseUpiText').textContent = course.upiId || 'shikshasaathi@upi';
+      document.getElementById('buyCourseModal').classList.remove('hidden');
+    }
+
+    function closeBuyModal() {
+      document.getElementById('buyCourseModal').classList.add('hidden');
+    }
+
+    function copyUpiId() {
+      const upi = document.getElementById('buyCourseUpiText').textContent;
+      const temp = document.createElement('textarea');
+      temp.value = upi;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      showToast(`UPI ID Copied: ${upi}`);
+    }
+
+    function submitPaymentRequest(e) {
+      e.preventDefault();
+      const studentName = document.getElementById('payStudentName').value.trim();
+      const mobile = document.getElementById('payStudentMobile').value.trim();
+      const utr = document.getElementById('payUtrInput').value.trim();
+
+      appData.paymentRequests.unshift({
+        id: 'pay_' + Date.now(),
+        courseId: activeBuyCourseId,
+        studentName,
+        mobile,
+        utr,
+        status: 'pending',
+        date: new Date().toLocaleDateString('en-IN')
+      });
+      saveAppData();
+
+      document.getElementById('payStudentName').value = '';
+      document.getElementById('payStudentMobile').value = '';
+      document.getElementById('payUtrInput').value = '';
+      closeBuyModal();
+      showToast('Payment submitted! Admin verify karke course unlock karega.');
+      renderCoursesTab();
+    }
+
+    function instantDemoUnlock() {
+      if (activeBuyCourseId && !appData.unlockedCourses.includes(activeBuyCourseId)) {
+        appData.unlockedCourses.push(activeBuyCourseId);
+        saveAppData();
+      }
+      closeBuyModal();
+      showToast('Demo Unlock Successful! Ab aap sabhi paid notes/videos khol sakte hain.');
+      renderHomeTab();
+      renderNotesTab();
+      renderTestsTab();
+      renderVideosTab();
+      renderCoursesTab();
+    }
+
+    // =========================================================
+    // ADMIN PANEL LOGIC (NO-CODE CONTENT & AD MANAGER)
+    // =========================================================
+    function openAdminAccess() {
+      if (isAdminLoggedIn) {
+        switchTab('admin');
+      } else {
+        document.getElementById('adminPinInput').value = '';
+        document.getElementById('adminPinModal').classList.remove('hidden');
+        setTimeout(() => document.getElementById('adminPinInput').focus(), 100);
+      }
+    }
+
+    function closeAdminPinModal() {
+      document.getElementById('adminPinModal').classList.add('hidden');
+    }
+
+    function verifyAdminPin(e) {
+      e.preventDefault();
+      const pin = document.getElementById('adminPinInput').value.trim();
+      if (pin === ADMIN_PIN) {
+        isAdminLoggedIn = true;
+        document.getElementById('adminBtnLabel').textContent = 'Panel';
+        closeAdminPinModal();
+        switchTab('admin');
+        showToast('Welcome to Admin Panel!');
+      } else {
+        showToast('Galat PIN! Default PIN 1234 hai.', 'fa-circle-xmark');
+      }
+    }
+
+    function logoutAdmin() {
+      isAdminLoggedIn = false;
+      document.getElementById('adminBtnLabel').textContent = 'Admin';
+      switchTab('home');
+    }
+
+    function switchAdminSubTab(subName) {
+      document.querySelectorAll('.admin-sub-view').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`adminSub-${subName}`).classList.remove('hidden');
+
+      document.querySelectorAll('.admin-sub-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-primary', 'text-white');
+        btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      });
+      const activeBtn = document.getElementById(`adminTab-${subName}`);
+      activeBtn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      activeBtn.classList.add('bg-brand-primary', 'text-white');
+    }
+
+    function toggleCourseSelect(accessSelectId, wrapperId) {
+      const val = document.getElementById(accessSelectId).value;
+      const wrap = document.getElementById(wrapperId);
+      if (val === 'paid') wrap.classList.remove('hidden');
+      else wrap.classList.add('hidden');
+    }
+
+    function populateCourseDropdowns() {
+      const optionsHtml = appData.courses.map(c => `<option value="${c.id}">${c.title} (₹${c.price})</option>`).join('');
+      ['noteCourseIdInput', 'testCourseIdInput', 'videoCourseIdInput'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = optionsHtml || `<option value="">Pehle Paid Course banayein</option>`;
+      });
+    }
+
+    function renderAdminPanel() {
+      populateCourseDropdowns();
+
+      // 1. Render Payment Verification List
+      const pendingCount = appData.paymentRequests.filter(r => r.status === 'pending').length;
+      document.getElementById('pendingPayCount').textContent = pendingCount;
+
+      const payListEl = document.getElementById('adminPaymentsList');
+      if (appData.paymentRequests.length === 0) {
+        payListEl.innerHTML = `<div class="text-xs text-slate-500 bg-slate-50 p-4 rounded-xl text-center">Abhi koi payment request nahi aayi hai.</div>`;
+      } else {
+        payListEl.innerHTML = appData.paymentRequests.map(req => {
+          const course = getCourseById(req.courseId);
+          return `
+            <div class="border border-slate-200 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 bg-slate-50/50">
+              <div class="text-xs space-y-0.5">
+                <div class="font-bold text-slate-800">${req.studentName} (${req.mobile})</div>
+                <div class="text-brand-primary font-semibold">${course ? course.title : 'Course'}</div>
+                <div class="text-slate-500">UTR: <strong class="font-mono text-slate-800">${req.utr}</strong> • ${req.date}</div>
+              </div>
+              ${req.status === 'pending'
+                ? `<button onclick="approveStudentPayment('${req.id}')" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow">
+                    <i class="fa-solid fa-check mr-1"></i> Approve &amp; Unlock
+                  </button>`
+                : `<span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">Approved</span>`
+              }
+            </div>
+          `;
+        }).join('');
+      }
+
+      // 2. Render Existing Manage Lists
+      document.getElementById('adminNotesManageList').innerHTML = appData.notes.map(n => `
+        <div class="flex items-center justify-between text-xs p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+          <span class="font-semibold text-slate-700 truncate pr-2">[${n.category}] ${n.title}</span>
+          <button onclick="deleteAdminItem('notes', '${n.id}')" class="text-red-600 hover:text-red-800 font-bold px-2"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      `).join('');
+
+      document.getElementById('adminTestsManageList').innerHTML = appData.tests.map(t => `
+        <div class="flex items-center justify-between text-xs p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+          <span class="font-semibold text-slate-700 truncate pr-2">[${t.category}] ${t.title} (${t.questions.length} Qs)</span>
+          <button onclick="deleteAdminItem('tests', '${t.id}')" class="text-red-600 hover:text-red-800 font-bold px-2"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      `).join('');
+
+      document.getElementById('adminVideosManageList').innerHTML = appData.videos.map(v => `
+        <div class="flex items-center justify-between text-xs p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+          <span class="font-semibold text-slate-700 truncate pr-2">[${v.category}] ${v.title}</span>
+          <button onclick="deleteAdminItem('videos', '${v.id}')" class="text-red-600 hover:text-red-800 font-bold px-2"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      `).join('');
+
+      document.getElementById('adminCoursesManageList').innerHTML = appData.courses.map(c => `
+        <div class="flex items-center justify-between text-xs p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+          <span class="font-semibold text-slate-700 truncate pr-2">${c.title} — ₹${c.price}</span>
+          <button onclick="deleteAdminItem('courses', '${c.id}')" class="text-red-600 hover:text-red-800 font-bold px-2"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      `).join('');
+
+      // 3. Populate AdSense Textareas
+      document.getElementById('adCodeTop').value = appData.ads.topBanner || '';
+      document.getElementById('adCodeNote').value = appData.ads.inNoteAd || '';
+      document.getElementById('adCodeTest').value = appData.ads.testAd || '';
+      document.getElementById('adminAdPreviewBox').innerHTML = appData.ads.inNoteAd || '<span class="text-xs text-slate-400">No ad code</span>';
+
+      // Ensure at least 1 Question field in Test Builder
+      const qContainer = document.getElementById('dynamicQuestionsContainer');
+      if (qContainer.children.length === 0) {
+        addQuestionField();
+      }
+    }
+
+    function approveStudentPayment(reqId) {
+      const req = appData.paymentRequests.find(r => r.id === reqId);
+      if (!req) return;
+      req.status = 'approved';
+      if (req.courseId && !appData.unlockedCourses.includes(req.courseId)) {
+        appData.unlockedCourses.push(req.courseId);
+      }
+      saveAppData();
+      renderAdminPanel();
+      showToast('Payment Approved! Course Unlocked.');
+    }
+
+    // Dynamic Question Builder for Test Creator
+    function addQuestionField() {
+      const container = document.getElementById('dynamicQuestionsContainer');
+      const idx = container.children.length + 1;
+      const div = document.createElement('div');
+      div.className = 'q-builder-item bg-slate-50 border border-slate-200 rounded-xl p-3 space-y-2';
+      div.innerHTML = `
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-700">Question #${idx}</span>
+          ${idx > 1 ? `<button type="button" onclick="this.closest('.q-builder-item').remove()" class="text-xs text-red-600 font-bold">Remove</button>` : ''}
+        </div>
+        <input type="text" required placeholder="Prashn (Question) likhein..." class="q-text w-full text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white outline-none" />
+        <div class="grid grid-cols-2 gap-2">
+          <input type="text" required placeholder="Option A" class="q-opt0 text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white outline-none" />
+          <input type="text" required placeholder="Option B" class="q-opt1 text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white outline-none" />
+          <input type="text" required placeholder="Option C" class="q-opt2 text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white outline-none" />
+          <input type="text" required placeholder="Option D" class="q-opt3 text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white outline-none" />
+        </div>
+        <div class="flex items-center gap-2">
+          <label class="text-xs font-bold text-emerald-700">Correct Answer:</label>
+          <select class="q-ans text-xs border border-slate-300 rounded-lg px-2 py-1 bg-white outline-none">
+            <option value="0">Option A</option>
+            <option value="1">Option B</option>
+            <option value="2">Option C</option>
+            <option value="3">Option D</option>
+          </select>
+        </div>
+      `;
+      container.appendChild(div);
+    }
+
+    // Form Submit Handlers
+    function handleAddNote(e) {
+      e.preventDefault();
+      appData.notes.unshift({
+        id: 'note_' + Date.now(),
+        title: document.getElementById('noteTitleInput').value.trim(),
+        category: document.getElementById('noteCategoryInput').value,
+        access: document.getElementById('noteAccessInput').value,
+        courseId: document.getElementById('noteCourseIdInput').value,
+        content: document.getElementById('noteContentInput').value.trim()
+      });
+      saveAppData();
+      e.target.reset();
+      renderAdminPanel();
+      showToast('Naya Study Note publish ho gaya!');
+    }
+
+    function handleAddTest(e) {
+      e.preventDefault();
+      const qBlocks = document.querySelectorAll('.q-builder-item');
+      const questions = [];
+      qBlocks.forEach(block => {
+        questions.push({
+          q: block.querySelector('.q-text').value.trim(),
+          options: [
+            block.querySelector('.q-opt0').value.trim(),
+            block.querySelector('.q-opt1').value.trim(),
+            block.querySelector('.q-opt2').value.trim(),
+            block.querySelector('.q-opt3').value.trim()
+          ],
+          answer: parseInt(block.querySelector('.q-ans').value, 10)
+        });
+      });
+
+      appData.tests.unshift({
+        id: 'test_' + Date.now(),
+        title: document.getElementById('testTitleInput').value.trim(),
+        category: document.getElementById('testCategoryInput').value,
+        duration: parseInt(document.getElementById('testDurationInput').value, 10) || 5,
+        access: document.getElementById('testAccessInput').value,
+        courseId: document.getElementById('testCourseIdInput').value,
+        passage: document.getElementById('testPassageInput').value.trim(),
+        questions
+      });
+      saveAppData();
+      e.target.reset();
+      document.getElementById('dynamicQuestionsContainer').innerHTML = '';
+      addQuestionField();
+      renderAdminPanel();
+      showToast('Naya Online MCQ Test ban gaya!');
+    }
+
+    function handleAddVideo(e) {
+      e.preventDefault();
+      appData.videos.unshift({
+        id: 'vid_' + Date.now(),
+        title: document.getElementById('videoTitleInput').value.trim(),
+        category: document.getElementById('videoCategoryInput').value,
+        type: document.getElementById('videoTypeInput').value,
+        access: document.getElementById('videoAccessInput').value,
+        courseId: document.getElementById('videoCourseIdInput').value,
+        url: document.getElementById('videoUrlInput').value.trim(),
+        description: document.getElementById('videoDescInput').value.trim()
+      });
+      saveAppData();
+      e.target.reset();
+      renderAdminPanel();
+      showToast('Naya Video Lecture add ho gaya!');
+    }
+
+    function handleAddCourse(e) {
+      e.preventDefault();
+      appData.courses.unshift({
+        id: 'course_' + Date.now(),
+        title: document.getElementById('courseTitleInput').value.trim(),
+        price: parseInt(document.getElementById('coursePriceInput').value, 10) || 199,
+        mrp: parseInt(document.getElementById('courseMrpInput').value, 10) || 499,
+        category: document.getElementById('courseCategoryInput').value,
+        upiId: document.getElementById('courseUpiInput').value.trim(),
+        description: document.getElementById('courseDescInput').value.trim()
+      });
+      saveAppData();
+      e.target.reset();
+      renderAdminPanel();
+      showToast('Naya Paid Course ban gaya!');
+    }
+
+    function handleSaveAds(e) {
+      e.preventDefault();
+      appData.ads.topBanner = document.getElementById('adCodeTop').value;
+      appData.ads.inNoteAd = document.getElementById('adCodeNote').value;
+      appData.ads.testAd = document.getElementById('adCodeTest').value;
+      saveAppData();
+      document.getElementById('adminAdPreviewBox').innerHTML = appData.ads.inNoteAd;
+      showToast('AdSense / Banner Ad Codes Save ho gaye!');
+    }
+
+    function deleteAdminItem(collection, id) {
+      appData[collection] = appData[collection].filter(item => item.id !== id);
+      saveAppData();
+      renderAdminPanel();
+      showToast('Item deleted!');
+    }
+
+    function resetDemoData() {
+      appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+      saveAppData();
+      renderAdminPanel();
+      showToast('Demo data reset ho gaya!');
+    }
+
+    // Initialize App on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      switchTab('home');
+    });
+  </script>
+</body>
+</html>
