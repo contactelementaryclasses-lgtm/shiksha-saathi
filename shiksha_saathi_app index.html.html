@@ -97,6 +97,7 @@
       border: 0;
     }
   </style>
+  <link rel="manifest" href="./manifest.json" />
 </head>
 <body class="min-h-screen flex flex-col">
 
@@ -2166,5 +2167,18 @@
       switchTab('home');
     });
   </script>
+
+  <script>
+    // Register the PWA service worker on GitHub Pages.
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./service-worker.js")
+          .catch(function (error) {
+            console.error("Service worker registration failed:", error);
+          });
+      });
+    }
+  </script>
+
 </body>
 </html>
